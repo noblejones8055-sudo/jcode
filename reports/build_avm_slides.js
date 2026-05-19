@@ -371,6 +371,105 @@ function addGreenPanel(slide, x, y, w, h) {
   addFooter(slide, 'From all of us at Waste Warriors — thank you for making this possible  |  FY 2025–26');
 }
 
-pptx.writeFile({ fileName: 'AVM_FundUtilisation_Slides6to11.pptx' })
-  .then(() => console.log('DONE — AVM_FundUtilisation_Slides6to11.pptx'))
+// ── SLIDE 12 — Key Challenges & Bottlenecks ──────────────────────────────────
+{
+  const slide = pptx.addSlide();
+
+  // Dark green full-bleed background for visual contrast
+  slide.addShape(pptx.ShapeType.rect, { x:0, y:0, w:W, h:H, fill:{color:GREEN}, line:{color:GREEN} });
+
+  // Title pill — inverted: yellow fill, green border, green text
+  slide.addShape(pptx.ShapeType.roundRect, {
+    x:2.8, y:0.28, w:7.73, h:0.78,
+    fill:{color:YELLOW}, line:{color:CREAM, width:2.5}, rectRadius:0.18,
+  });
+  slide.addText('Key Challenges & Bottlenecks', {
+    x:2.8, y:0.28, w:7.73, h:0.78,
+    fontSize:24, bold:true, color:GREEN, fontFace:'Calibri', align:'center', valign:'middle',
+  });
+
+  // Subtitle / hook
+  slide.addText('The realities our teams navigate every day — and where sustained partnership matters most', {
+    x:0.5, y:1.18, w:12.33, h:0.42,
+    fontSize:13, italic:true, color:CREAM, fontFace:'Calibri', align:'center', valign:'middle',
+  });
+
+  const challenges = [
+    {
+      num:'01',
+      title:'Remote Terrain & Broken Lifelines',
+      body:'In Govind, poor roads, weak network coverage, and monsoon-damaged Waste Banks routinely cut our teams off — sometimes leaving frontline workers without phone signal for days at a time.',
+    },
+    {
+      num:'02',
+      title:'Retaining a Frontline Workforce',
+      body:'Extreme physical demands and resource-scarce postings make it difficult to attract and retain team members. The loss of long-serving Green Workers leaves gaps that are hard to fill.',
+    },
+    {
+      num:'03',
+      title:'The Economics of Low-Value Waste',
+      body:'Multi-layered plastics and reject waste historically cost more to process than they earn back. Operational margins remain thin, and recovery depends on continuous market-building.',
+    },
+    {
+      num:'04',
+      title:'Reaching Scattered Mountain Communities',
+      body:'In Shimla, our teams travel entirely on foot across steep terrain to reach households spread across remote panchayats — making consistent field coverage one of our biggest operational lifts.',
+    },
+    {
+      num:'05',
+      title:'Long-Term Funding Continuity',
+      body:'Building durable waste systems requires multi-year horizons. Year-on-year funding uncertainty makes it harder to plan, retain teams, and scale interventions that are already showing results.',
+    },
+  ];
+
+  // 5 horizontal strips with yellow number accent on left + cream card on right
+  const stripX = 0.5;
+  const stripW = 12.33;
+  const stripH = 1.0;
+  const stripStart = 1.7;
+  const stripGap = 0.05;
+
+  challenges.forEach((c, i) => {
+    const y = stripStart + i * (stripH + stripGap);
+
+    // Cream/beige card body
+    slide.addShape(pptx.ShapeType.roundRect, {
+      x: stripX, y, w: stripW, h: stripH,
+      fill:{color:CREAM}, line:{color:CREAM}, rectRadius:0.06,
+    });
+
+    // Yellow vertical accent block on the left holding the number
+    slide.addShape(pptx.ShapeType.rect, {
+      x: stripX, y, w: 1.4, h: stripH,
+      fill:{color:YELLOW}, line:{color:YELLOW},
+    });
+
+    // Giant number in green on yellow
+    slide.addText(c.num, {
+      x: stripX, y, w: 1.4, h: stripH,
+      fontSize: 44, bold: true, color: GREEN, fontFace:'Calibri',
+      align:'center', valign:'middle',
+    });
+
+    // Title (bold green) + body (dark) on the cream card
+    slide.addText(c.title, {
+      x: stripX + 1.6, y: y + 0.08, w: stripW - 1.8, h: 0.36,
+      fontSize: 15, bold: true, color: GREEN, fontFace:'Calibri', valign:'middle',
+    });
+    slide.addText(c.body, {
+      x: stripX + 1.6, y: y + 0.44, w: stripW - 1.8, h: stripH - 0.5,
+      fontSize: 12, color: DARK, fontFace:'Calibri', valign:'top',
+    });
+  });
+
+  // Footer — yellow strip on green
+  slide.addShape(pptx.ShapeType.rect, { x:0, y:H-0.55, w:W, h:0.55, fill:{color:YELLOW}, line:{color:YELLOW} });
+  slide.addText('Your continued partnership is what helps us turn these challenges into systems that last', {
+    x:0.3, y:H-0.55, w:W-0.6, h:0.55,
+    fontSize:13, bold:true, italic:true, color:GREEN, fontFace:'Calibri', align:'center', valign:'middle',
+  });
+}
+
+pptx.writeFile({ fileName: 'AVM_FundUtilisation_Slides6to12.pptx' })
+  .then(() => console.log('DONE — AVM_FundUtilisation_Slides6to12.pptx'))
   .catch(e => { console.error(e); process.exit(1); });
