@@ -105,124 +105,98 @@ function addGreenPanel(slide, x, y, w, h) {
   addFooter(slide, 'Govind  |  Harrawala MRF  |  Nagrota  |  Shimla  |  FY 2025–26');
 }
 
-// ── SLIDE 7 — Govind: Bringing the Basics to a Resource-Scarce Region ────────
+// ── SLIDE 7 — Govind: Work in the Wild ───────────────────────────────────────
 {
   const slide = pptx.addSlide();
   addBackground(slide);
-  addTitle(slide, 'Govind — Bringing the Basics to a Resource-Scarce Region');
+  addTitle(slide, 'Govind Wildlife Sanctuary — Work in the Wild');
 
-  // Yellow context strip
-  addYellowPanel(slide, 0.5, 1.15, 12.33, 0.82);
-  slide.addText('Govind is one of our most remote project locations — limited amenities, difficult terrain, and poor connectivity make retention and daily operations a real challenge. With your support, we helped close that gap.', {
-    x:0.65, y:1.15, w:12.03, h:0.82,
+  // Yellow location context strip
+  addYellowPanel(slide, 0.5, 1.15, 12.33, 0.72);
+  slide.addText('Inside a protected wildlife reserve, at high altitude, across 4 remote villages — our team is building waste management systems where no systems existed before.', {
+    x:0.65, y:1.15, w:12.03, h:0.72,
     fontSize:13, bold:true, color:DARK, fontFace:'Calibri', align:'center', valign:'middle',
   });
 
-  // Left card — Laptop
-  addBeigePanel(slide, 0.5, 2.18, 6.1, 4.52);
-  slide.addText('Laptop', { x:0.75, y:2.3, w:5.6, h:0.45, fontSize:18, bold:true, color:GREEN, fontFace:'Calibri' });
+  // Left narrative panel — the work
+  addBeigePanel(slide, 0.5, 2.0, 7.8, 4.75);
   slide.addText([
-    { text:'In a region where connectivity and equipment are hard to come by, a laptop has become the backbone of daily work for the Govind team.\n\n', options:{fontSize:13, color:DARK} },
-    { text:'It is used for:\n', options:{bold:true, fontSize:13, color:GREEN} },
-  ], { x:0.75, y:2.82, w:5.6, h:1.2, fontFace:'Calibri', valign:'top' });
+    { text:'What\'s Happening on the Ground\n\n', options:{bold:true, fontSize:16, color:GREEN} },
+    { text:'The Govind Wildlife Sanctuary project covers four villages — Gaichwan, Netwar, Doni, and Satta — deep inside one of Uttarakhand\'s most ecologically sensitive protected zones. These are places where waste management infrastructure has historically been non-existent.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'Our teams collect waste across these villages, segregate it on-site, and transport tonnes of material out of the sanctuary — often across rough mountain roads — to our Harrawala MRF in Dehradun for scientific processing.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'This year, 30 trekking companies committed to the Trek It Back campaign, bringing trail waste down from popular routes like Kedarkantha rather than leaving it in fragile ecosystems. Community-led Waste Banks are being established, and local cleanliness committees are taking ownership of operations.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'Every kilogram collected here protects a forest, a water source, or a wildlife habitat that millions depend on.', options:{fontSize:12.5, color:DARK, italic:true} },
+  ], { x:0.72, y:2.12, w:7.38, h:4.5, fontFace:'Calibri', valign:'top' });
 
-  const laptopPoints = [
-    'Data analysis and field reporting',
-    'Monitoring & evaluation tracking',
-    'Field documentation and record-keeping',
-    'Virtual coordination with the regional team',
-    'Communications and project planning',
+  // Right stats panel — green
+  addGreenPanel(slide, 8.55, 2.0, 4.28, 3.35);
+  const govindStats = [
+    { num:'5',         label:'Panchayats with active\nwaste management systems' },
+    { num:'10,000+',   label:'kg waste collected &\ntransported out of the sanctuary' },
+    { num:'30',        label:'Trekking companies\nonboarded for trail waste' },
+    { num:'4',         label:'Villages covered inside\nGovind Wildlife Sanctuary' },
   ];
-  laptopPoints.forEach((pt, i) => {
-    slide.addText(`• ${pt}`, {
-      x:0.85, y:4.08 + i * 0.42, w:5.4, h:0.4,
-      fontSize:13, color:DARK, fontFace:'Calibri',
-    });
+  govindStats.forEach((s, i) => {
+    slide.addText(s.num,   { x:8.72, y:2.08 + i*0.82, w:1.5,  h:0.45, fontSize:22, bold:true, color:YELLOW, fontFace:'Calibri', align:'center' });
+    slide.addText(s.label, { x:10.1, y:2.08 + i*0.82, w:2.55, h:0.45, fontSize:10.5, color:WHITE, fontFace:'Calibri', valign:'middle' });
   });
 
-  // Right card — Water Purifier
-  addGreenPanel(slide, 6.85, 2.18, 6.0, 4.52);
-  slide.addText('Water Purifier', { x:7.1, y:2.3, w:5.5, h:0.45, fontSize:18, bold:true, color:YELLOW, fontFace:'Calibri' });
+  // AVM contribution callout strip — thin, at the bottom of right column
+  addYellowPanel(slide, 8.55, 5.5, 4.28, 1.25);
   slide.addText([
-    { text:'Clean drinking water is not a given in remote locations like Govind. A water purifier installed at the team\'s office means:\n\n', options:{fontSize:13, color:WHITE} },
-  ], { x:7.1, y:2.82, w:5.5, h:0.9, fontFace:'Calibri', valign:'top' });
+    { text:'Powered by your support\n', options:{bold:true, fontSize:12, color:GREEN} },
+    { text:'Laptop  ·  Water Purifier', options:{fontSize:12, color:DARK} },
+    { text:'\nEssential tools that keep our remote team connected, healthy, and operational.', options:{fontSize:10.5, color:DARK, italic:true} },
+  ], { x:8.68, y:5.55, w:4.0, h:1.15, fontFace:'Calibri', valign:'top' });
 
-  const waterPoints = [
-    { label:'Safe, clean drinking water', sub:'every day — no compromise.' },
-    { label:'Reduced risk of waterborne illness', sub:'protecting team health in an area with limited medical access.' },
-    { label:'A more comfortable workspace', sub:'one less daily hardship for team members living and working in the field.' },
-    { label:'Better retention', sub:'small amenities like this signal care for people, making it easier to attract and keep team members in a difficult posting.' },
-  ];
-  waterPoints.forEach((pt, i) => {
-    slide.addText([
-      { text:`• ${pt.label}: `, options:{bold:true, color:YELLOW} },
-      { text:pt.sub, options:{color:WHITE} },
-    ], { x:7.1, y:3.9 + i * 0.65, w:5.5, h:0.6, fontSize:12.5, fontFace:'Calibri', valign:'top' });
-  });
-
-  addFooter(slide, 'Programmatic Capital Expenses  |  Govind Wildlife Sanctuary, Uttarakhand');
+  addFooter(slide, 'Govind Wildlife Sanctuary  |  Gaichwan · Netwar · Doni · Satta  |  Uttarakhand');
 }
 
-// ── SLIDE 8 — Harrawala MRF: Strengthening Day-to-Day Operations ─────────────
+// ── SLIDE 8 — Harrawala MRF: Dehradun's Waste Processing Engine ──────────────
 {
   const slide = pptx.addSlide();
   addBackground(slide);
-  addTitle(slide, 'Harrawala MRF — Strengthening Day-to-Day Operations');
+  addTitle(slide, 'Harrawala MRF — Dehradun\'s Waste Processing Engine');
 
   // Yellow banner
-  addYellowPanel(slide, 0.5, 1.15, 12.33, 0.78);
-  slide.addText('Your support equipped our Material Recovery Facility with the infrastructure needed to keep operations running smoothly — for the workers, and for the waste.', {
-    x:0.65, y:1.15, w:12.03, h:0.78,
-    fontSize:13.5, bold:true, color:DARK, fontFace:'Calibri', align:'center', valign:'middle',
+  addYellowPanel(slide, 0.5, 1.15, 12.33, 0.72);
+  slide.addText('Every day at Harrawala, waste that would end up in a landfill is given a second life — sorted, processed, and sent back into the recycling chain.', {
+    x:0.65, y:1.15, w:12.03, h:0.72,
+    fontSize:13, bold:true, color:DARK, fontFace:'Calibri', align:'center', valign:'middle',
   });
 
-  // 3-column cards
-  const cards = [
-    {
-      x: 0.5,
-      title: 'High-Pressure\nWater Pump',
-      titleColor: GREEN,
-      bg: PANEL,
-      border: GREEN,
-      textColor: DARK,
-      body: 'A high-pressure water pump keeps the Harrawala MRF hygienic. It enables thorough cleaning of waste-handling areas, vehicles, and processing equipment — a critical requirement when dealing with mixed, organic, and dry waste streams every day.\n\nHygiene at an MRF is not optional — it protects Green Workers, prevents contamination, and maintains the quality of recyclables.',
-    },
-    {
-      x: 4.61,
-      title: 'Industrial Cooler',
-      titleColor: YELLOW,
-      bg: GREEN,
-      border: GREEN,
-      textColor: WHITE,
-      body: 'Dehradun summers are intense. Green Workers at the Harrawala MRF handle heavy physical labour — sorting, loading, and processing waste — under demanding conditions.\n\nAn industrial cooler at the facility provides much-needed relief during peak heat, reducing physical strain and health risks, and making the MRF a more dignified and sustainable place to work.\n\nIn Q3 alone, the MRF diverted over 519 MT of waste — none of that is possible without a workforce that can sustain the effort.',
-    },
-    {
-      x: 8.72,
-      title: 'Office Furniture',
-      titleColor: GREEN,
-      bg: PANEL,
-      border: GREEN,
-      textColor: DARK,
-      body: 'A functioning office needs basic infrastructure. Furniture — desks, chairs, and seating for common areas — gives the MRF\'s coordination team a proper, dignified workspace.\n\nThis matters: the Harrawala MRF is not just a processing facility. It serves as a learning hub, hosting visits from government officials, IFS officers, urban planning engineers, and institutional delegations. A well-equipped space reflects the professionalism and credibility of the work happening here.',
-    },
+  // Left narrative panel
+  addBeigePanel(slide, 0.5, 2.0, 7.8, 4.75);
+  slide.addText([
+    { text:'What\'s Happening on the Ground\n\n', options:{bold:true, fontSize:16, color:GREEN} },
+    { text:'The Harrawala Material Recovery Facility is our flagship urban operations hub in Dehradun. Every month, tonnes of dry and wet waste from Ward 97 and beyond arrive here — and leave as sorted recyclables, compost, and recoverable material.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'Green Workers segregate waste by category, process organic matter through in-vessel composting, and dispatch recyclables to verified market partners. The MRF now handles up to 1,200 kg of wet waste per day and has converted multi-layered plastics — once a disposal burden — into a revenue stream.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'The facility also serves as a learning centre. This year alone, it hosted Indian Forest Service officers, Dehradun\'s Mayor, urban planning engineers, and delegations from Mizoram — all coming to see how a community-linked MRF actually works.\n\n', options:{fontSize:12.5, color:DARK} },
+    { text:'Ward 97 households pay monthly user fees and trust the system — averaging ₹1.63 lakh per month — a sign of how deeply this MRF is embedded in the community.', options:{fontSize:12.5, color:DARK, italic:true} },
+  ], { x:0.72, y:2.12, w:7.38, h:4.5, fontFace:'Calibri', valign:'top' });
+
+  // Right stats panel — green
+  addGreenPanel(slide, 8.55, 2.0, 4.28, 3.35);
+  const mrfStats = [
+    { num:'519+ MT',    label:'waste diverted from\nlandfills in Q3 alone' },
+    { num:'1,200 kg',   label:'wet waste processed\nper day at the MRF' },
+    { num:'1,472',      label:'households served\nin Ward 97, Dehradun' },
+    { num:'₹1.63L',     label:'avg monthly user fees\ncollected from the community' },
   ];
-
-  cards.forEach(c => {
-    slide.addShape(pptx.ShapeType.roundRect, {
-      x:c.x, y:2.15, w:3.91, h:4.55,
-      fill:{color:c.bg}, line:{color:c.border, width:1.5}, rectRadius:0.1,
-    });
-    slide.addText(c.title, {
-      x:c.x+0.2, y:2.25, w:3.5, h:0.65,
-      fontSize:15, bold:true, color:c.titleColor, fontFace:'Calibri',
-    });
-    slide.addText(c.body, {
-      x:c.x+0.2, y:2.98, w:3.5, h:3.55,
-      fontSize:11.5, color:c.textColor, fontFace:'Calibri', valign:'top',
-    });
+  mrfStats.forEach((s, i) => {
+    slide.addText(s.num,   { x:8.72, y:2.08 + i*0.82, w:1.7,  h:0.45, fontSize:20, bold:true, color:YELLOW, fontFace:'Calibri', align:'center' });
+    slide.addText(s.label, { x:10.3, y:2.08 + i*0.82, w:2.35, h:0.45, fontSize:10.5, color:WHITE, fontFace:'Calibri', valign:'middle' });
   });
 
-  addFooter(slide, 'Programmatic Capital Expenses  |  Harrawala MRF, Dehradun');
+  // AVM contribution callout — yellow strip bottom right
+  addYellowPanel(slide, 8.55, 5.5, 4.28, 1.25);
+  slide.addText([
+    { text:'Powered by your support\n', options:{bold:true, fontSize:12, color:GREEN} },
+    { text:'High-Pressure Water Pump  ·  Industrial Cooler  ·  Office Furniture', options:{fontSize:11, color:DARK} },
+    { text:'\nInfrastructure that keeps the MRF hygienic, humane, and operational year-round.', options:{fontSize:10.5, color:DARK, italic:true} },
+  ], { x:8.68, y:5.55, w:4.0, h:1.15, fontFace:'Calibri', valign:'top' });
+
+  addFooter(slide, 'Harrawala MRF  |  Ward 97, Dehradun  |  Programmatic Capital Expenses');
 }
 
 // ── SLIDE 9 — Nagrota: Laying the Groundwork ─────────────────────────────────
