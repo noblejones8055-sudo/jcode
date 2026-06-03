@@ -236,7 +236,7 @@ add_body(doc,
 add_heading(doc, "What is a Zero Coupon Zero Principal (ZCZP) Instrument?", 3)
 add_body(doc,
     "A ZCZP instrument is a unique financial security issued by a Non-Profit Organisation (NPO) "
-    "listed on India's Social Stock Exchange (SSE). Here's what makes it unusual:"
+    "registered with India's Social Stock Exchange (SSE). Here's what makes it unusual:"
 )
 add_bullet(doc, "Zero Coupon: The investor receives NO interest / returns.")
 add_bullet(doc, "Zero Principal: The investor gets NO money back at maturity.")
@@ -296,7 +296,7 @@ add_bullet(doc,
 )
 add_bullet(doc,
     "Zero Coupon Zero Principal (ZCZP) Instrument: A SEBI-declared security issued by an NPO "
-    "listed on the Social Stock Exchange segment of a recognised stock exchange — offering "
+    "registered with the Social Stock Exchange segment of a recognised stock exchange — offering "
     "no coupon (interest) and no return of principal."
 )
 
@@ -322,9 +322,9 @@ add_bullet(doc,
     "from the date of issuance of the ZCZP instrument. No open-ended commitments allowed."
 )
 add_bullet(doc,
-    "Unspent Funds: If the ZCZP instrument is delisted (terminated) before the project is complete, "
-    "any unspent funds MUST be transferred to an approved fund listed in Schedule VII of the "
-    "Companies Act — the money cannot be retained or used for other purposes."
+    "Unspent Funds: On termination of the listing of the ZCZP instrument, any unspent funds MUST "
+    "be transferred to an approved fund listed in Schedule VII of the Companies Act — "
+    "the money cannot be retained or used for other purposes."
 )
 add_bullet(doc,
     "SEBI Compliance Report: The NPO must submit a compliance report to SEBI when the listing ends."
@@ -333,8 +333,8 @@ add_bullet(doc,
 add_heading(doc, "Applicability of Existing CSR Rules:", 3)
 add_body(doc,
     "Most of the existing Rule 4 (general CSR implementation rules) applies to ZCZP-based CSR — "
-    "EXCEPT sub-rules (5) and (6), which deal with unspent CSR account mechanics that are "
-    "replaced by the specific ZCZP unspent-fund transfer mechanism above."
+    "EXCEPT sub-rules (5) and (6). This ensures the specific ZCZP unspent-fund and compliance "
+    "mechanism in Rule 4A(3) takes precedence over those two sub-rules."
 )
 
 add_heading(doc, "Quick Reference: Key Numbers", 3)
@@ -371,7 +371,7 @@ doc.add_paragraph()
 
 add_callout(doc,
     "Documents 2 and 3 work together as a package: Document 2 gives legal recognition, "
-    "Document 3 provides the operational rules. Both were notified within two days of each other "
+    "Document 3 provides the operational rules. Both were notified on the same day (27 May 2026) "
     "and take effect from the date of publication in the Gazette.",
     "NOTE"
 )
